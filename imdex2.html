@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center vh-100">
+            <div class="col-10 col-sm-8 col-md-6 col-xl-4">
+                <div class="row g-2">
+                    <div class="col-9">
+                        <div class="overflow-hidden fs-1 text-end text-white bg-secondary opacity-50 w-100 p-3">0</div>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="remove">
+                            <div class="fs-3 fw-bold"><i class="bi-backspace"></i></div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="7">
+                            <div class="fs-3 fw-bold">7</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="8">
+                            <div class="fs-3 fw-bold">8</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="9">
+                            <div class="fs-3 fw-bold">9</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-danger rounded-0 w-100 p-3" value="devise">
+                            <div class="fs-3 fw-bold">/</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="4">
+                            <div class="fs-3 fw-bold">4</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="5">
+                            <div class="fs-3 fw-bold">5</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="6">
+                            <div class="fs-3 fw-bold">6</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-danger rounded-0 w-100 p-3" value="multiply">
+                            <div class="fs-3 fw-bold">*</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="1">
+                            <div class="fs-3 fw-bold">1</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="2">
+                            <div class="fs-3 fw-bold">2</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="3">
+                            <div class="fs-3 fw-bold">3</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-danger rounded-0 w-100 p-3" value="include">
+                            <div class="fs-3 fw-bold">+</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-success rounded-0 w-100 p-3" value="clear">
+                            <div class="fs-3 fw-bold">C</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="0">
+                            <div class="fs-3 fw-bold">0</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-warning rounded-0 w-100 p-3" value="equal">
+                            <div class="fs-3 fw-bold">=</div>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-secondary opacity-50 text-danger rounded-0 w-100 p-3" value="remove">
+                            <div class="fs-3 fw-bold">-</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const display = document.querySelector('.overflow-hidden');
+        let displayValue = '';
+
+        const buttons = document.getElementsByTagName('button');
+
+        for (const button of buttons) {
+            button.addEventListener('click', function () {
+                const value = this.value;
+                if (value === 'clear') {
+                    displayValue = '';
+                    display.textContent = '0';
+                } else if (value === 'equal') {
+                    try {
+                        displayValue = eval(displayValue);
+                        display.textContent = 'Error';
+                        displayValue = ''
+                    } catch {
+                        display.textContent = 'Error';
+                        displayValue = '';
+                    }
+                }else if (value === 'remove') {
+                    displayValue = displayValue.slice(0, -1);
+                    if (displayValue === '') {
+                        displayValue = '0';
+                    }
+                    display.textContent = displayValue;
+                } else {
+                    if (displayValue === '0') {
+                        displayValue = value;
+                    } else {
+                        displayValue += value;
+                    }
+                    display.textContent = displayValue;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row row-cols-6 d-flex align-items-center justify-content-center vh-100 g-0">
+            <div class="col">
+                <button class="btn btn-primary" data-color="blue">Primary</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-secondary" data-color="gray">Secondary</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" data-color="green">Success</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-danger" data-color="red">Danger</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-warning" data-color="yellow">Warning</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-info" data-color="cyan">Info</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeBgColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        const buttons = document.querySelectorAll("button");
+        for (const button of buttons) {
+            const color = button.getAttribute("data-color");
+            button.addEventListener("click", () => changeBgColor(color));
+        }
+    </script>
+</body>
+
+</html>
