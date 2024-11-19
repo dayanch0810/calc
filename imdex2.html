@@ -18,8 +18,8 @@
                         <div class="overflow-hidden fs-1 text-end text-white bg-secondary opacity-50 w-100 p-3">0</div>
                     </div>
                     <div class="col-3">
-                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number" value="remove">
-                            <div class="fs-3 fw-bold"><i class="bi-backspace"></i></div>
+                        <button class="btn btn-secondary opacity-50 rounded-0 w-100 p-3 number h-100" value="remove">
+                            <div class="fs-3 fw-bold"><i class="bi bi-backspace"></i></div>
                         </button>
                     </div>
                     <div class="col-3">
@@ -127,7 +127,7 @@
                         display.textContent = 'Error';
                         displayValue = '';
                     }
-                }else if (value === 'remove') {
+                } else if (value === 'remove') {
                     displayValue = displayValue.slice(0, -1);
                     if (displayValue === '') {
                         displayValue = '0';
